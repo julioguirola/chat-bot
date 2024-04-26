@@ -11,7 +11,7 @@ function Answer({ quest }) {
     if (quest) {
       console.log(quest)
       setData("Generando ...")
-      fetch("http://localhost:3000/ask", {
+      fetch("https://julius-ai-lyart.vercel.app//ask", {
         method: "POST",
         headers: {
             "Content-Type": "application-json"
