@@ -5,9 +5,6 @@ export const metadata = {
   description: "Asistente AI Julius"
 };
 
-//Script: "https://esm.sh/react-markdown@9?bundle"
-
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">

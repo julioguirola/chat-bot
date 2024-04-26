@@ -1,7 +1,7 @@
 'use client';
 import styles from "./page.module.css";
 import { useState, useEffect } from "react"; 
-//import Markdown from "next/script"
+import Markdown from "react-markdown"
 
 
 function Answer({ quest }) {
@@ -28,7 +28,7 @@ function Answer({ quest }) {
   }, [quest])
  
   return (
-    <div id={styles.answer}>{data}</div>
+    <div id={styles.answer}><Markdown>{data}</Markdown></div>
   )
 }
 
