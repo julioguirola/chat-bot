@@ -56,8 +56,8 @@ header p {
 
 body {
   display: grid;
-  grid-template-rows: 85px 1fr 45px;
-  height: 100vh;
+  grid-template-rows: 85px 1fr 60px;
+  height: 95vh;
 }
 
 main {
