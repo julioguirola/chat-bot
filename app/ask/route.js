@@ -1,6 +1,6 @@
 export async function POST(request) {
     const body = await request.json()
-    const res = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyDyCLVxtIBN6ZPLHagM4Rdye1O4Pt_EM4g", {
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${process.env.API_KEY}`, {
         method: "POST",
         headers: {
             "Content-Type": "application-json"
