@@ -13,40 +13,58 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-button {
-  color: white;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
 main {
   margin: 0;
   display: flex;
   flex-direction: column;
   text-align: center;
   align-items: center;
-  gap: 20px;
+}
+
+header > div {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+header h2 {
+  margin: 0;
+  height: 45px;
+}
+
+header p {
+  margin-top: 0;
+}
+
+.head-title {
+  display: flex;
+  padding-left: 5%;
+  flex-direction: column;
+}
+
+.new-chat-button {
+  display: flex;
+  padding-left: 30%;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.new-chat-button button {
+  border: none;
+  background-color: transparent;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 85px 1fr 45px;
+  height: 100vh;
+}
+
+main {
+  overflow-y: scroll;
+}
+
+footer {
+  display: flex;
+  background-color: aqua;
 }

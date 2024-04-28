@@ -1,16 +1,28 @@
+import { GoogleGenerativeAI } from "@google/generative-ai"
+const genAI = new GoogleGenerativeAI("AIzaSyDyCLVxtIBN6ZPLHagM4Rdye1O4Pt_EM4g");
+const model = genAI.getGenerativeModel({ model: "gemini-pro"});
+
 export async function POST(request) {
     const body = await request.json()
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${process.env.API_KEY}`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application-json"
-        },
-        body: JSON.stringify({
-            "contents": [{
-              "parts":[{
-                "text": body.quest}]}]})
-    }
-    )
-    const data = await res.json()
-    return Response.json(data)
+    const chat = model.startChat({
+        // history format
+        // {
+        //   role: "user",
+        //   parts: [{ text: "Hello, I have 2 dogs in my house." }],
+        // },
+        // {
+        //   role: "model",
+        //   parts: [{ text: "Great to meet you. What would you like to know?" }],
+        // }
+    history: body.history,
+    generationConfig: {
+        maxOutputTokens: 100,
+    },
+    });
+
+    const msg = body.msg;
+    const result = await chat.sendMessage(msg);
+    const response = result.response;
+    return Response.json({msg : response.text()})
+
 }
