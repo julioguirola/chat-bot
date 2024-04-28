@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
           {children}
         </main>
         <footer>
-
+          <input type="text" placeholder="Ask something ..." id="textPrompt"></input>
         </footer>
       </body>
     </html>
