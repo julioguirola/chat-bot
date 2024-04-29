@@ -21,8 +21,6 @@ main {
   margin: 0;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  align-items: center;
 }
 
 header > div {
@@ -63,7 +61,7 @@ header p {
 body {
   margin: 0;
   display: grid;
-  grid-template-rows: 10vh 80vh;
+  grid-template-rows: 13vh 77vh;
   height: 100vh;
 }
 
@@ -89,7 +87,7 @@ footer {
 }
 
 .search input[type="text"] {
-  width: 80vw;
+  width: 68vw;
   padding: 10px;
   border: none;
   border-radius: 20px;
