@@ -30,7 +30,7 @@ export default function Home() {
     const msg = document.querySelector("input").value
     document.querySelector("input").value = ""
     if(!msg) return
-    const res = await fetch("http://julius-ai-lyart.vercel.app/ask", {
+    const res = await fetch("https://julius-ai-lyart.vercel.app/ask", {
       method : "POST",
       headers : {
         "Content-Type" : "application/json"
