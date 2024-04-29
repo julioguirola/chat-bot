@@ -56,29 +56,68 @@ header p {
 .new-chat-button button {
   border: none;
   background-color: transparent;
+  cursor: pointer;
+
 }
 
 body {
   margin: 0;
   display: grid;
-  grid-template-rows: 10vh 85vh;
+  grid-template-rows: 10vh 80vh;
   height: 100vh;
 }
 
 main {
+  margin: 5px;
   overflow-y: scroll;
 }
 
 footer {
   position: fixed;
   bottom: 0;
-  display: flex;
-  height: 5vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
   width: 100%;
-  border-top: 1px solid wheat;
 }
 
-footer input {
-  align-self: center;
-  border-radius: 6px;
+.search {
+  width: 90vw;
+  display: inline-block;
+  position: relative;
+}
+
+.search input[type="text"] {
+  width: 80vw;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search button {
+  background-color: #09f;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: grid;
+  place-content: center;
+}
+
+article {
+  text-align: left;
+}
+
+article p {
+  margin-top: 0;
+}
+
+article h4 {
+  margin-bottom: 0;
 }
