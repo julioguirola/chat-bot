@@ -14,7 +14,8 @@
 }
 
 header {
-  position: sticky, -webkit-sticky;
+  position: sticky;
+  position: -webkit-sticky;
   top: 0;
   margin-top: 10px;
 }
