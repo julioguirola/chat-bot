@@ -1,4 +1,5 @@
 'use client';
+import Loader from "@/components/Loader";
 import { useState, useEffect } from "react"; 
 import Markdown from "react-markdown"
 
@@ -25,11 +26,29 @@ export default function Home() {
   //   parts: [{ text: "Great to meet you. What would you like to know?" }],
   // }
   const [history, setHistory] = useState([])
+  const [loading, setLoading] = useState(false)
+
+  const scroller = () => {
+    const main = document.querySelector("main")
+    main.scrollTop = main.scrollHeight
+  }
+
+  const handleClick = () => {
+    chat()
+  }
+
+  const handleEnterPress = (e) => {
+    if (e.key == "Enter") {
+      chat()
+    }
+  }
 
   async function chat() {
     const msg = document.querySelector("input").value
-    document.querySelector("input").value = ""
     if(!msg) return
+    document.querySelector("input").value = ""
+    setLoading(true)
+    setTimeout(scroller, 100)
     const res = await fetch("https://julius-ai-lyart.vercel.app/ask", {
       method : "POST",
       headers : {
@@ -52,11 +71,14 @@ export default function Home() {
         }
       ]
       const newHistory = [...history, ...template]
+      setLoading(false)
       setHistory(newHistory)
+      setTimeout(scroller, 100)
     }
   }
 
-  function clear() {
+  const handleClear = () => {
+    setLoading(false)
     setHistory([])
   }
 
@@ -69,7 +91,7 @@ export default function Home() {
               <p>Hecho con amor por Julius 💙</p>
             </div>
             <div className="new-chat-button">
-              <button onClick={clear}><svg xmlns="http://www.w3.org/2000/svg" width={40} height={40} viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-square-plus">
+              <button onClick={handleClear}><svg xmlns="http://www.w3.org/2000/svg" width={40} height={40} viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-square-plus">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M9 12h6" />
                 <path d="M12 9v6" />
@@ -86,11 +108,14 @@ export default function Home() {
               return <Msg msg={entr.parts[0].text} sender={entr.role} key={key}/>
             })
           }
+          {
+            loading ? <Loader /> : null
+          }
         </main>
         <footer>
           <div className="search">
-            <input placeholder="Ask something ..." type="text"></input>
-          <button onClick={chat}>
+            <input onKeyDown={handleEnterPress} placeholder="Ask something ..." type="text"></input>
+          <button onClick={handleClick}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 664 663" height="15" width="15">
               <path fill="none" d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888"></path>
               <path strokeLinejoin="round" strokeLinecap="round" strokeWidth="33.67" stroke="white" d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888"></path>
