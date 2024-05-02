@@ -63,7 +63,7 @@ header p {
 body {
   margin: 0;
   display: grid;
-  grid-template-rows: 13vh 77vh;
+  grid-template-rows: 13vh 76vh;
   height: 100vh;
 }
 

@@ -16,7 +16,7 @@ export async function POST(request) {
         // }
     history: body.history,
     generationConfig: {
-        maxOutputTokens: 1000,
+        maxOutputTokens: 1000000,
     },
     });
 
