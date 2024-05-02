@@ -14,10 +14,14 @@
 }
 
 header {
+  position: fixed;
+  width: 100vw;
+  top: 0;
   margin-top: 10px;
 }
 
 main {
+  margin-top: 13vh;
   padding: 0 8vw 0 8vw;
   display: flex;
   flex-direction: column;
