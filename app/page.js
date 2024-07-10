@@ -49,7 +49,7 @@ export default function Home() {
     document.querySelector("input").value = ""
     setLoading(true)
     setTimeout(scroller, 100)
-    const res = await fetch("https://julius-ai-lyart.vercel.app/ask", {
+    const res = await fetch("https://chat-bot-beta-drab.vercel.app/ask", {
       method : "POST",
       headers : {
         "Content-Type" : "application/json"
