@@ -19,7 +19,7 @@ export async function POST(request) {
       const db = client.db("xposter")
       const colContent = db.collection("messages")
 
-      colContent.insertOne({"msg": msg})
+      await colContent.insertOne({"msg": msg})
       await client.close();
 
       return Response.json({msg : "ok"})
