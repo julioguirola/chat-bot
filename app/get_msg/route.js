@@ -10,7 +10,7 @@ const client = new MongoClient(uri, {
   }
 });
 
-
+export const dynamic = 'force-dynamic'
 export async function GET() {
     await client.connect();
     const db = client.db("xposter")
