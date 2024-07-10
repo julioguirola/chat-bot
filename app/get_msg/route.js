@@ -18,6 +18,6 @@ export async function GET() {
 
     const result = await colContent.find({}).toArray()
     await client.close();
-
-    return Response.json({msg : result})
+    console.log(result)
+    return Response.json(result)
 }
