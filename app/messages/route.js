@@ -11,15 +11,21 @@ const client = new MongoClient(uri, {
 });
 
 export async function POST(request) {
-    const body = await request.json()
-    const msg = body.msg;
+    try {
+      const body = await request.json()
+      const msg = body.msg;
+      console.log(msg)
+      await client.connect();
+      const db = client.db("xposter")
+      const colContent = db.collection("messages")
 
-    await client.connect();
-    const db = client.db("xposter")
-    const colContent = db.collection("messages")
+      colContent.insertOne({"msg": msg})
+      await client.close();
 
-    colContent.insertOne({"msg": msg})
-    await client.close();
-
-    return Response.json({msg : "ok"})
+      return Response.json({msg : "ok"})
+    } catch (e) {
+      console.error(e)
+      return
+    }
+    
 }
